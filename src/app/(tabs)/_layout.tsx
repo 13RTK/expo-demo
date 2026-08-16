@@ -1,11 +1,19 @@
+import { useGroceryStore } from '@/store/grocery-store';
 import { useAuth } from '@clerk/expo';
 import { Redirect } from 'expo-router';
 import { NativeTabs } from 'expo-router/build/native-tabs/NativeTabs';
 import { useColorScheme } from 'nativewind';
+import { useEffect } from 'react';
 
 export default function TabsLayout() {
   const { isSignedIn, isLoaded } = useAuth();
   const { colorScheme } = useColorScheme();
+
+  const { loadItems } = useGroceryStore();
+
+  useEffect(() => {
+    loadItems();
+  }, []);
 
   const isDark = colorScheme === 'dark';
   const tabTintColor = isDark ? 'hsl(142 70% 54%)' : 'hsl(147 75% 33%)';
