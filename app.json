@@ -9,7 +9,7 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon",
-      "bundleIdentifier": "com.anonymous.expo-demo"
+      "bundleIdentifier": "com.alex.grocery"
     },
     "android": {
       "adaptiveIcon": {
@@ -26,7 +26,12 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "@clerk/expo",
+      [
+        "@clerk/expo",
+        {
+          "appleSignIn": false
+        }
+      ],
       "expo-router",
       [
         "expo-splash-screen",
